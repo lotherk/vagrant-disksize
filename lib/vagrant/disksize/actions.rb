@@ -44,7 +44,7 @@ module Vagrant
             unless File.exist? new_disk[:file]
               clone_as_vdi(driver, old_disk, new_disk)
               attach_disk(driver, new_disk)
-              File.delete(old_disk[:file])
+              #File.delete(old_disk[:file])
             end
           end
         end
@@ -124,7 +124,8 @@ module Vagrant
           src_extn = File.extname(src)
           src_path = File.dirname(src)
           src_base = File.basename(src, src_extn)
-          dst = File.join(src_path, src_base) + '.vdi'
+          #dst = File.join(src_path, src_base) + '.vdi'
+          dst = src_base + '.vdi'
           disk.merge({ uuid: "(undefined)", file: dst })
         end
 
